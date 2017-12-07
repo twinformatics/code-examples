@@ -1,0 +1,32 @@
+
+
+plugins {
+    id "java"
+    id "me.champeau.gradle.jmh" version "0.4.5"
+
+}
+sourceCompatibility = 1.8
+group 'at.twinformatics.examples'
+version '1.0-SNAPSHOT'
+
+
+repositories {
+    mavenCentral()
+    maven {
+        url "https://plugins.gradle.org/m2/"
+    }
+}
+
+dependencies {
+     testCompile("org.junit.jupiter:junit-jupiter-api:5.0.2")
+     testRuntime("org.junit.jupiter:junit-jupiter-engine:5.0.2")
+    jmh 'org.openjdk.jmh:jmh-core:1.19'
+    jmh 'org.openjdk.jmh:jmh-generator-annprocess:1.19'
+
+
+}
+
+jmh {
+    duplicateClassesStrategy = 'warn'
+}
+
