@@ -15,7 +15,7 @@ public class StringUtil {
     public static String getStringOfFixedLength(int x) {
 
         String returnValue = "";
-        
+
         for(int i = 0; i < x; i++) {
              returnValue = returnValue + DEFAULT_CHAR;
         }
