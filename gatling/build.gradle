@@ -1,0 +1,10 @@
+plugins {
+    id "com.github.lkishalmi.gatling" version "0.7.1"
+}
+
+group 'at.twinformatics.examples'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}

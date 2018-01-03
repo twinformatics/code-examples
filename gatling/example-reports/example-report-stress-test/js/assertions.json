@@ -1,0 +1,10 @@
+{
+  "simulation": "simulations.ThroughputSimulation",
+  "simulationId": "throughputsimulation",
+  "start": 1514972618484,
+  "description": "",
+  "scenarios": ["load test"],
+  "assertions": [
+
+  ]
+}
