@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="header :: head"/>
+<body>
+<head th:replace="header :: nav"/>
+<div class="row">
+    <div class="col s6 m7">
+        <h2 class="header">Geschafft!</h2>
+        <div class="card horizontal">
+            <div class="card-image">
+                <img src="/img/pi.png" width="80px"/>
+            </div>
+            <div class="card-stacked">
+                <div class="card-content">
+                    <p> Schicke deinen Code <br/><b th:text="${code}"></b> <br/> an <br/>rene.schakmann@twinformatics.at
+                        <br/><br/>
+                        Solltest du gewonnen haben informieren wir dich per EMail.
+                    </p>
+                </div>
+                <div class="card-action">
+                    <a href="https://www.raspberrypi.org/">https://www.raspberrypi.org/</a>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+</div>
+<footer th:replace="footer :: footer"/>
+
+</body>
+</html>

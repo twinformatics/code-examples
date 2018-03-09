@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="header :: head"/>
+<body>
+<head th:replace="header :: nav"/>
+<div class="row">
+    <div class="col l6 s12">
+        <h2 class="header">Gewinne einen Raspberry PI</h2>
+        <div class="card horizontal">
+            <div class="card-image">
+                <img src="/img/pi.png" width="80px"/>
+            </div>
+            <div class="card-stacked">
+                <div class="card-content">
+                    <p>Gewinne unsere Hacker Challenge. Die ersten 15 Personen die sich ohne gültige Zugangsdaten in
+                        unseren Memberbereich einloggen können bekommen einen Raspberry PI.</p>
+                </div>
+                <div class="card-action">
+                    <a href="https://www.raspberrypi.org/">https://www.raspberrypi.org/</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <form class="col l6 s12" th:action="@{/login}" th:object="${loginForm}" method="post">
+
+        <h2>Member Login</h2>
+        <div class="row" th:if="${error}">
+            <div class="input-field col s12">
+                <i class="material-icons dp48">error</i> Login fehlgeschlagen
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <input id="userName" th:field="*{userName}" type="text" class="validate">
+                <label for="userName">Benutzername</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <input id="password" th:field="*{password}" type="password" class="validate">
+                <label for="password">Password</label>
+            </div>
+        </div>
+        <button class="btn waves-effect waves-light" type="submit" name="action">Login zum Memberbereich
+            <i class="material-icons right">send</i>
+        </button>
+    </form>
+</div>
+<footer th:replace="footer:: footer"/>
+
+</body>
+</html>
