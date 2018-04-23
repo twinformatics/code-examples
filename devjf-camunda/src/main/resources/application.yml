@@ -1,0 +1,10 @@
+camunda:
+  bpm:
+    admin-user:
+      id: admin
+      password: admin
+      email: unknown@example.com
+      first-name: Curtis
+      last-name: Newton
+    deployment-resource-pattern:
+    - classpath:/processes/**/*.bpmn
