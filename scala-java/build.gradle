@@ -1,0 +1,13 @@
+apply plugin: 'scala'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.scala-lang:scala-library:2.12.6'
+}
+
+task wrapper(type: Wrapper) {
+	gradleVersion = '4.8'
+}
