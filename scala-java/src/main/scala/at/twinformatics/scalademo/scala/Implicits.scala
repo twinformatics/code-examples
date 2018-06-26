@@ -2,7 +2,10 @@ package at.twinformatics.scalademo.scala
 
 import java.util.Random
 
-object Implicits {
+/**
+  * This example shows how to use implicits for simple dependency injection.
+  */
+object Implicits extends App {
 
     private val CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
     def randomString(length: Int)(implicit r: Random): String = {
@@ -11,11 +14,10 @@ object Implicits {
             .mkString
     }
 
-    def main(args: Array[String]): Unit = {
-        println(randomString(10)(new Random()))
+    println(randomString(10)(new Random()))
 
-        implicit val random: Random = new Random(123)
-        println(randomString(15))
-    }
+    // Bringing the random engine in scope for the `randomString' method.
+    implicit val random: Random = new Random(123)
+    println(randomString(15))
 
 }

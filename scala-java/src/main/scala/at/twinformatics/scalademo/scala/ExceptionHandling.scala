@@ -4,6 +4,10 @@ import java.io.IOException
 import java.nio.file.Path
 import java.nio.file.Files.readAllBytes
 
+/**
+  * This example shows the advanced possibilities of Scala exception handling
+  * using `PartialFunction`s as exception handler.
+  */
 object ExceptionHandling {
 
     def readText1(file: Path): Option[String] = {

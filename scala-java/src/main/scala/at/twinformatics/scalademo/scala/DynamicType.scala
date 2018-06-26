@@ -2,7 +2,10 @@ package at.twinformatics.scalademo.scala
 
 import scala.language.dynamics
 
-
+/**
+  * This example shows the usage of dynamic types. This means that the method
+  * calls are mapped to the `applyDynamic` method of the _dynamic_ type.
+  */
 object DynamicType extends App {
 
 	object Arithmetic extends Dynamic {

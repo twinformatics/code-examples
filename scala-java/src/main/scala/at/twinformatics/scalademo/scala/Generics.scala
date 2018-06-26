@@ -1,5 +1,9 @@
 package at.twinformatics.scalademo.scala
 
+/**
+  * Example on how to use declaration side and use side generic variance
+  * definition.
+  */
 object Generics {
 
     trait Iterator[+T] {
