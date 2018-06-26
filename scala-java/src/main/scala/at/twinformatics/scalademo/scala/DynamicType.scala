@@ -3,7 +3,7 @@ package at.twinformatics.scalademo.scala
 import scala.language.dynamics
 
 
-object DynamicTypes extends App {
+object DynamicType extends App {
 
 	object Arithmetic extends Dynamic {
 		def applyDynamic(methodName: String)(args: Int*): Int = {
