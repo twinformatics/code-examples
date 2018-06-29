@@ -2,6 +2,10 @@ package at.twinformatics.scalademo.scala
 
 import scala.language.implicitConversions
 
+/**
+  * This example shows the pattern, which lets you define _extension_ methods in
+  * Scala by using the implicit conversion capability.
+  */
 final class RichInt(value: Int) {
 	def isPrime: Boolean = {
 		BigInt(value).isProbablePrime(20)

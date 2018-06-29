@@ -2,6 +2,14 @@ package at.twinformatics.scalademo.scala
 
 import scala.reflect.ClassTag
 
+/**
+  * Normally, the actual generic type is not available at runtime (thanks to
+  * erasure). Sometimes it is useful knowing the erased type. Scala lets you
+  * define a second parameter list with an implicit `ClassTag`. This tag is
+  * automatically added by the Scala compiler. No need to specify it manually.
+  * With the `ClassTag` it is possible to get the runtime type of the generic
+  * type `T`.
+  */
 object Reified extends App {
 
 	def array[T <: AnyRef](length: Int)(implicit tag: ClassTag[T]): Array[T] = {

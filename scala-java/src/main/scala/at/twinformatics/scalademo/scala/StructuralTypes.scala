@@ -4,6 +4,9 @@ import java.io.ByteArrayInputStream
 
 import scala.io.Source
 
+/**
+  * Structural types are the Scala version of duck-typing.
+  */
 object StructuralTypes {
 
 	def using[C <: {def close(): Unit}, T](closeable: C)(block: C => T) = {

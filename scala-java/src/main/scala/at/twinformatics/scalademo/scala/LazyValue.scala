@@ -1,6 +1,10 @@
 package at.twinformatics.scalademo.scala
 
-object LazyValue {
+/**
+  * This example shows the useage of "lazy" values. They are evaluated on their
+  * first usage.
+  */
+object LazyValue extends App {
 
     lazy val lazyValue: String = {
         println("Initialize lazy value")
@@ -12,9 +16,14 @@ object LazyValue {
         "Eager value"
     }
 
-    def main(args: Array[String]): Unit = {
-        println("Starting program")
-        println(lazyValue)
-        println(eagerValue)
-    }
+    println("Starting program")
+    println(lazyValue)
+    println(eagerValue)
+
+    // Program output:
+    // Initialize eager value
+    // Starting program
+    // Initialize lazy value
+    // Lazy value
+    // Eager value
 }

@@ -2,6 +2,10 @@ package at.twinformatics.scalademo.scala
 
 import scala.annotation.tailrec
 
+/**
+  * Example for a classical tail-recursive function. Scala is able to compile a
+  * tail-recursive function into an iterative version.
+  */
 object TailRecursion {
 
     def fibrec(n: Int): Int = n match {

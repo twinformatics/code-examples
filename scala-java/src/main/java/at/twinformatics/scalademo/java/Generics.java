@@ -8,7 +8,7 @@ public class Generics {
     }
 
     Iterator<String> strings = null;
-    Iterator<? extends Object> objects = strings;
+    Iterator<?> objects = strings;
     Iterator<Integer> integers = null;
 
     void iterate(Iterator<? extends Number> it) {}
