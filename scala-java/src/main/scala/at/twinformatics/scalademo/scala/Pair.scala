@@ -43,9 +43,9 @@ object ExtractorTest extends App {
 
 	process(Pair(1, "2")) // Got: 1 and 2
 	process("Some Value") // Unknown: Some Value
-    process("count:12")
-    process("count:12.2")
-    process("invalid")
+    process("count:12") // Got Entry[count, 12]
+    process("count:12.2") // Unknown: count:12.2
+    process("invalid") // Unknown: invalid
 }
 
 
