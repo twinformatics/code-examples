@@ -6,6 +6,10 @@ import java.util.Optional;
 
 import static java.nio.file.Files.readAllBytes;
 
+/**
+ * Simple exception handling example in Java. The checked `IOException`, thrown
+ * by the `readAllBytes` method, must be handled.
+ */
 public class ExceptionHandling {
 
     Optional<String> readText(Path file) {

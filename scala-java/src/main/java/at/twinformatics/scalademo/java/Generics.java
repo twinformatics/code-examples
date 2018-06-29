@@ -1,5 +1,9 @@
 package at.twinformatics.scalademo.java;
 
+/**
+ * Example for defining and using generic types in Java. Java allows only
+ * use-side variance declaration.
+ */
 public class Generics {
 
     interface Iterator<T> {

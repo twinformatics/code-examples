@@ -1,5 +1,10 @@
 package at.twinformatics.scalademo.java;
 
+/**
+ * The `Fraction` class implementation in Java is quite verbose, compared to
+ * the Scala version. Especially the `hashCode`, `equals` and `toString` method
+ * are quite a burden to implement.
+ */
 public class Fraction {
     private final long num;
     private final long denom;

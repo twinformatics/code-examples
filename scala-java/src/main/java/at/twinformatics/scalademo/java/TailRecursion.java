@@ -1,5 +1,8 @@
 package at.twinformatics.scalademo.java;
 
+/**
+ * The Scala tail-recursion method will compile to this Java code.
+ */
 public class TailRecursion {
 
     // Decompiled version of Scala tailrec version.
