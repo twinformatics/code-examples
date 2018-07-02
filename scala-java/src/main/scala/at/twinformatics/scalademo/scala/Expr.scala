@@ -25,5 +25,5 @@ object eval extends App {
 	}
 
 	val expr = Add(Const(3), Sub(Mul(Var(), Const(10)), Const(4)))
-	println(eval(expr, 1))
+	println(eval(expr, 1)) // 9.0
 }

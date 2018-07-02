@@ -17,6 +17,5 @@ object ValueTypes extends App {
 	println(2.isPrime)  // true
 	println(1323123.isPrime)  // false
 
-	// Actual call
-	// RichInt.isPrime(2)
+	// Actual call is `RichInt.isPrime(2)`
 }
