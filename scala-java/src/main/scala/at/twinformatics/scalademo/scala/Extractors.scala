@@ -34,10 +34,15 @@ object IntEntry {
     }
 }
 
+case class Point(x: Int, y: Int)
+case class Line(start: Point, end: Point)
+
 object ExtractorTest extends App {
     def process(any: Any): Unit = any match {
 		case Pair(a, b) => println(s"Got: $a and $b")
         case IntEntry(name, value) => println(s"Got Entry[$name, $value]")
+        case Point(x, y) if x < y => println(s"Point[$x, $y]")
+        case Line(Point(x, _), Point(_, y)) => println(s"Start x: $x, End y: $y")
 		case _ => println(s"Unknown: $any")
 	}
 
@@ -46,6 +51,8 @@ object ExtractorTest extends App {
     process("count:12") // Got Entry[count, 12]
     process("count:12.2") // Unknown: count:12.2
     process("invalid") // Unknown: invalid
+    process(Point(1, 2)) // Point[1, 2]
+    process(Line(Point(1, 2), Point(3, 4))) // Start x: 1, End y: 4
 }
 
 

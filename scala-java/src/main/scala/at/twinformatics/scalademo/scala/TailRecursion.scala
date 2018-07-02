@@ -26,6 +26,4 @@ object TailRecursion {
         println(fib(10))
     }
 
-    case object Nil extends List[Nothing]
-
 }
