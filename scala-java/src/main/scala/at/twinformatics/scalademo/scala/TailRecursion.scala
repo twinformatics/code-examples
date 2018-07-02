@@ -8,6 +8,7 @@ import scala.annotation.tailrec
   */
 object TailRecursion {
 
+    // @tailrec // Won't compile into tailrec version.
     def fibrec(n: Int): Int = n match {
         case 0 | 1 => n
         case _ => fibrec(n - 1) + fibrec(n - 2)
@@ -24,5 +25,7 @@ object TailRecursion {
         println(fibrec(10))
         println(fib(10))
     }
+
+    case object Nil extends List[Nothing]
 
 }
