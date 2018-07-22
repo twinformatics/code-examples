@@ -1,0 +1,18 @@
+spring.cloud.stream.default.group: consumer
+
+spring.cloud.stream.bindings.ticksInput.destination: topic1
+spring.cloud.stream.bindings.ticksInput.consumer.concurrency: 3
+#spring.cloud.stream.bindings.ticksInput.consumer.partitioned: true
+
+#spring.cloud.stream.kafka.bindings.ticksInput.consumer.enableDlq: true
+#
+#spring.cloud.stream.bindings.ticksInputError.destination: error.ticktocks.consumer
+spring.cloud.stream.bindings.ticksInputError.consumer.concurrency: 3
+
+logging:
+  level:
+    org.apache.kafka: info
+server:
+  port: 0
+
+
