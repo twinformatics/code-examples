@@ -1,0 +1,10 @@
+- code durchgehen
+- manager  (partition offsets)
+- producer starten
+- consumer starten
+- 2 consumers
+
+Use cases:
+- SendTo
+- key expression
+- DLQ

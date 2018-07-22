@@ -7,6 +7,10 @@ public class PartitionKeyExtractor implements PartitionKeyExtractorStrategy {
 
     @Override
     public Object extractKey(Message<?> message) {
-        return 0;
+        if (message.hashCode() % 2 == 0) {
+            return 0;
+        } else {
+            return message.hashCode();
+        }
     }
 }

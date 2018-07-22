@@ -86,7 +86,7 @@
             </section>
             <section>
                 <h3>horizontally-scalable</h3>
-                Es können (zur Laufzeit) neue Broker auf neuen Machinen hinzugefügt werden, wenn die Last zu groß wird.
+                Es können (zur Laufzeit) neue Broker auf neuen Maschinen hinzugefügt werden, wenn die Last zu groß wird.
                 <aside class="notes">
                     Let’s define the term vertical scalability first. Say, for instance, you have a traditional database
                     server which is starting to get overloaded. The way to get this solved is to simply increase the
@@ -159,14 +159,14 @@
         <section>
             <h2>Zookeeper</h2>
             <ul>
-                <li>Ist eine Datenbank zum Speichern von Konfiguration und Metadaten für den Kafka Clust</li>
-                <li>Ist ein eigener Cluster neben dem Kafka Cluster</li>
+                <li>Datenbank zum Speichern von Konfiguration und Metadaten für den Kafka Cluster</li>
+                <li>Eigener Cluster, der vom Kafka Cluster verwendet wird</li>
                 <li>Aufgaben:
                     <ul>
                         <li>Leader Election</li>
                         <li>Mitgliedschaft im Cluster: Welche Broker sind aktiv und Teil des Clusters?</li>
-                        <li>Topic Metadaten: Welche Topics gibt es? Wieviele Partitionen haben sie? Wer ist der Leader
-                            oder der Replication Factor einer Partition?
+                        <li>Topic Metadaten: z.B. Welche Topics gibt es? Wieviele Partitionen haben sie? Wer ist der Leader
+                            oder einer Partition? Wie ist der Replication Factor?
                         </li>
                     </ul>
                 </li>
