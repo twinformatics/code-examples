@@ -1,0 +1,225 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Kafka</title>
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/white.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+</head>
+<body>
+<div class="reveal">
+    <div class="slides">
+        <section>
+            <img src="logo.png"/>
+        </section>
+        <section>
+            <h2>Agenda</h2>
+            <ul>
+                <li>Theorie</li>
+                <ul>
+                    <li>Historie</li>
+                    <li>Allgemeines</li>
+                    <li>Terminologie</li>
+                    <li>Producer</li>
+                    <li>Consumer</li>
+                    <li>Zookeeper</li>
+                </ul>
+                <li>Code <br/><br/></li>
+                <li style="text-decoration: line-through">Schema Evolution</li>
+                <li style="text-decoration: line-through">Schema Registry</li>
+                </ul>
+
+        </section>
+        <section>
+            <h2>Historie</h2>
+            <ul>
+                <li>Entwickelt von LinkedIn im Jahr 2011</li>
+                <li>Open-Source Software-Projekt der Apache Software Foundation</li>
+                <li>Wird von Confluent weiterentwickelt</li>
+                <li>Aktuell Version 1.1.1 &rarr; wir verwenden 0.10.1.1</li>
+                <li>35% der Fortune 500 setzen Kafka ein (8 von 10 bei Versicherungen) [<a href="#/ref">1</a>, <a
+                        href="#/ref">2</a>]
+                </li>
+                <aside class="notes">
+                    0.10.1.1: December 20, 2016
+                    Netflix, Uber, and Pinterest, Spotify, Netflix, Twitter, Paypal, Airbnb
+                </aside>
+            </ul>
+        </section>
+        <section>
+            <h2>Allgemeines</h2>
+            <ul>
+                <li>Kafka ist eine Streaming Platform</li>
+                <li>1..n Producer schicken Nachrichten an 1..n Consumer (Publish-Subscribe)</li>
+                <li>Nachrichten werden von Kafka persistiert</li>
+                <li>Zentrale Komponente in einer Event-Driven-Achitecture</li>
+                <li>Entkoppelt Services</li>
+                <aside class="notes">
+                    This means it is perfect for use as the heart of your system’s architecture, acting as a centralized
+                    medium that connects different applications. Kafka can be the center piece of an event-driven
+                    architecture and allows you to truly decouple applications from one another.
+                </aside>
+            </ul>
+        </section>
+        <section>
+            <h4>Kafka is a distributed, horizontally-scalable, fault-tolerant, commit log</h4>
+            <section>
+                <h3>distributed</h3>
+                Kafka läuft in einem Cluster, der aus mehreren Nodes besteht. Er speichert, empfängt und sendet
+                Nachrichten
+                zu anderen Nodes im Cluster. Nodes im Cluster nennt man Brokers.
+            </section>
+            <section>
+                <h3>horizontally-scalable</h3>
+                Es können (zur Laufzeit) neue Broker auf neuen Maschinen hinzugefügt werden, wenn die Last zu groß wird.
+                <aside class="notes">
+                    Let’s define the term vertical scalability first. Say, for instance, you have a traditional database
+                    server which is starting to get overloaded. The way to get this solved is to simply increase the
+                    resources (CPU, RAM, SSD) on the server. This is called vertical scaling — where you add more
+                    resources to the machine. There are two big disadvantages to scaling upwards:
+                    - There are limits defined by the hardware. You cannot scale upwards indefinitely.
+                    - It usually requires downtime, something which big corporations cannot afford.
+                </aside>
+            </section>
+            <section>
+                <h3>fault-tolerant</h3>
+                Alle Nachrichten werden auf mehreren Brokern gespeichert (= redundant). Somit können einzelne Broker
+                ausfallen ohne das System funktional zu beeinflussen (kein Single Point of Failure).
+                <aside class="notes">
+                    Replication Faktor 2: Jede Nachricht 2x
+                </aside>
+            </section>
+            <section>
+                <h3>commit log</h3>
+                <p>Kafka speichert und liest die Nachrichten sequentiell und unveränderlich. Kafka speichert
+                    alle Nachricht auf der Disk.</p>
+                <img src="log.png"/>
+                <aside class="notes">
+                    keine Write Locks
+                </aside>
+            </section>
+        </section>
+        <section>
+            <h2>Terminologie</h2>
+            <section>
+                <h3>Topic</h3>
+                <blockquote>a category or feed name to which records are published</blockquote>
+                z.B. change.partner
+            </section>
+            <section>
+                <h3>Partition</h3>
+                <blockquote>Each partition is an ordered, immutable sequence of records that is continually appended
+                    to — a structured commit log.
+                </blockquote>
+                z.B. change.partner => 10 partitions
+            </section>
+            <section>
+                <h3>Producer</h3>
+                <blockquote>Producers publish data to the topics of their choice. The producer is responsible for
+                    choosing which record to assign to which partition within the topic.
+                </blockquote>
+                z.B. event-hub
+            </section>
+            <section>
+                <h3>Consumer</h3>
+                <blockquote>Consumers label themselves with a consumer group name, and each record published to a topic
+                    is delivered to one consumer instance within each subscribing consumer group. Consumer instances can
+                    be in separate processes or on separate machines.
+                </blockquote>
+                z.B. partner-service
+            </section>
+            <section>
+                <h2>Log</h2>
+
+            </section>
+        </section>
+        <section>
+            <h2>Producer</h2>
+            <img class="stretch" src="log_anatomy.png"/>
+        </section>
+        <section>
+            <h2>Consumer</h2>
+            <img class="stretch" src="log_consumer.png"/>
+        </section>
+        <section>
+            <h2>Zookeeper</h2>
+            <ul>
+                <li>Datenbank zum Speichern von Konfiguration und Metadaten für den Kafka Cluster</li>
+                <li>Eigener Cluster, der vom Kafka Cluster verwendet wird</li>
+                <li>Aufgaben:
+                    <ul>
+                        <li>Leader Election</li>
+                        <li>Mitgliedschaft im Cluster: Welche Broker sind aktiv und Teil des Clusters?</li>
+                        <li>Topic Metadaten: z.B. Welche Topics gibt es? Wieviele Partitionen haben sie? Wer ist der Leader
+                            oder einer Partition? Wie ist der Replication Factor?
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+        <section>
+            <h2>Demo</h2>
+        </section>
+        <section id="ref">
+            <h2>Referenzen</h2>
+            <ol>
+                <li>
+                    <a href="https://www.slideshare.net/ConfluentInc/introduction-to-apache-kafka-and-confluent-and-why-they-matter">
+                        Introduction to Apache Kafka and Confluent... and why they matter
+                    </a></li>
+                <li><a href="https://cwiki.apache.org/confluence/display/KAFKA/Powered+By">
+                    Powered By Kafka
+                </a></li>
+            </ol>
+        </section>
+        <section>
+            <h2>Empfehlungen</h2>
+            <ul>
+                <li><a href="https://wiki.twinformatics.at/confluence/display/DCC/Kafka+Topic+Naming+Convention">
+                    Kafka Topic Naming Convention (TF Wiki)
+                </a></li>
+                <li><a href="https://www.youtube.com/watch?v=UEg40Te8pnE">Intro to Kafka (Youtube)</a></li>
+                <li><a href="https://www.youtube.com/watch?v=YPDzcmqwCNo">Intro to Spring Cloud Streams (Youtube, Josh
+                    Long)</a></li>
+            </ul>
+        </section>
+    </div>
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+
+<script>
+    // More info about config & dependencies:
+    // - https://github.com/hakimel/reveal.js#configuration
+    // - https://github.com/hakimel/reveal.js#dependencies
+    Reveal.initialize({
+        dependencies: [
+            {src: 'plugin/markdown/marked.js'},
+            {src: 'plugin/markdown/markdown.js'},
+            {src: 'plugin/notes/notes.js', async: true},
+            {
+                src: 'plugin/highlight/highlight.js', async: true, callback: function () {
+                    hljs.initHighlightingOnLoad();
+                }
+            }
+        ]
+    });
+</script>
+</body>
+</html>
