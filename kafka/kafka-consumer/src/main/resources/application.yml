@@ -1,16 +1,16 @@
 spring.cloud.stream.default.group: consumer
 
 spring.cloud.stream.bindings.ticksInput.destination: topic1
-spring.cloud.stream.bindings.ticksInput.consumer.concurrency: 5
+spring.cloud.stream.bindings.ticksInput.consumer.concurrency: 10
+spring.cloud.stream.bindings.ticksInput.consumer.maxAttempts: 1
+
+spring.cloud.stream.kafka.bindings.ticksInput.consumer.enableDlq: true
 
 #spring.cloud.stream.bindings.ticksOutput.destination: topic2
 #spring.cloud.stream.kafka.bindings.ticksOutput.producer.sync: true
 #
 #spring.cloud.stream.bindings.ticksInput1000.destination: topic2
 #spring.cloud.stream.bindings.ticksInput1000.consumer.concurrency: 3
-
-#spring.cloud.stream.kafka.bindings.ticksInput.consumer.enableDlq: true
-#spring.cloud.stream.bindings.ticksInput.maxAttempts: 1
 
 logging:
   level:

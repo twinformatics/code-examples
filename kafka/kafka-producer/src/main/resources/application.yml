@@ -1,4 +1,4 @@
-#spring.cloud.stream.default.producer.partitionKeyExtractorClass: com.vig.devjf.kafka.producer.key.PartitionKeyExtractor
+spring.cloud.stream.bindings.input.producer.partitionKeyExpression: payload
 
 spring.cloud.stream.bindings.ticksOutput.destination: topic1
 spring.cloud.stream.kafka.bindings.ticksOutput.producer.sync: true
@@ -8,8 +8,6 @@ spring:
     stream:
       kafka:
         binder:
-          auto-create-topics: false
-          auto-add-partitions: false
           zkNodes: localhost
           brokers: localhost
 
